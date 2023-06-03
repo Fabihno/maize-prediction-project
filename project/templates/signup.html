@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User | Regestration Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+    <link rel="icon" href="images/TTU-Logo.png">
+
+</head>
+
+<body>
+    <div class="signup-form">
+        <h1>Registration Form</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            
+            <button type="submit" name="submit" id="sbt">Register</button>
+            <div class = "alr">
+                <h3>Already have account? <a href="{% url 'login' %}">Login</a></h3>
+            </div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </form>
+        
+    </div>
+    <!-- <?php
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "project";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    session_start();
+ 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $users = array('2' => 'User', '3' => 'Teacher');
+        $username =  ($_REQUEST['username']);
+        $password = ($_REQUEST['password']);
+        $gender =  ($_REQUEST['gen']);
+        $dob = ($_REQUEST['dob']);
+        $user_type = ($users[$_REQUEST['user']]);
+
+        // Performing insert query execution
+        // here our table name is college
+        if (isset($_POST['submit'])) {
+
+
+            $sql = "INSERT INTO user VALUES ('$username','$password','$gender','$dob','$user_type')";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result == 1) {
+    ?> -->
+    <!-- <script type="text/javascript">
+        alert("Registration Successfull.");
+        window.location = "{% url 'home' %}";
+    </script> -->
+    <!-- <?php
+            } else {
+            ?>
+        <script type="text/javascript">
+            alert("Registration unsuccessfu..!!.");
+        </script>
+        <?php
+            }
+        }
+    }
+    session_destroy();
+    ?> -->
+
+</body>
+
+</html>

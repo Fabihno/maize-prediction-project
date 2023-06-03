@@ -1,0 +1,33 @@
+body {
+    background: black;
+    color: antiquewhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    font-size: 20px;
+    text-decoration: none;
+    background: greenyellow;
+    border: 4px burlywood solid;
+    border-radius: 15px;
+    padding: 3px;
+}
+
+a:hover,
+a:active {
+    background-color: darkmagenta;
+    color: black;
+    border: 4px brown solid;
+    border-radius: 30px;
+}
+
+.logo {
+    margin: 15%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.right-display {
+    margin-left: 2%;
+    margin-bottom: 5%;
+}

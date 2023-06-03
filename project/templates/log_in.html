@@ -1,0 +1,86 @@
+<!-- <?php
+session_start();
+?> -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> User | Login Page </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/TTU-Logo.png">
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+    <style>
+      
+        
+    </style>
+</head>
+
+<body>
+    <div class="login-form">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <img src="{% static 'images/avatar.png' %}" alt="avatar image " class="avatar">
+            <div class="container">
+                <center>
+                    <h1> Login Form </h1>
+                </center>
+                <label>Username : </label>
+                <input type="text" placeholder="Enter Username" name="username" id="username" required>
+                <label>Password : </label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                <button type="submit" name="submit">Login</button>
+                <h3>Do you have an account? <a href="{% url 'signup' %}">SignUp</a></h3>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if messages.tag %} class="{{ message.tags }}"{% endif %}>{{message}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </form>
+
+    </div>
+    <!-- <?php
+
+    $con = mysqli_connect("localhost", "root", "", "project");
+    $username = filter_input(INPUT_POST, 'username');
+    $password = filter_input(INPUT_POST, 'password');
+    /*
+    $user=filter_input(INPUT_POST,'user');
+    $user1=filter_input(INPUT_POST,'teacher');
+    */
+    $username = stripcslashes($username);
+    $password = stripcslashes($password);
+    $username = mysqli_real_escape_string($con, $username);
+    $password = mysqli_real_escape_string($con, $password);
+    if (isset($_POST['submit'])) {
+
+
+        $sql = "SELECT *FROM user where username = '$username' && password = '$password'";
+        $result = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $count = mysqli_num_rows($result);
+
+        if ($count == 1) {
+    ?>
+            <script type="text/javascript">
+                alert("Login Successfull.");
+                window.location = "homePage.php";
+            </script>
+            <?php
+        } else {
+        ?>
+                <script type="text/javascript">
+                    alert("Login failed. Email or Password invalid!!.");
+                </script>
+                <?php
+        }
+    }
+    ?> -->
+</body>
+
+</html>
